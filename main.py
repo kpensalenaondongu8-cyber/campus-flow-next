@@ -8,6 +8,8 @@ from campusflow.validate import (
     validate_category,
     validate_title,
     validate_urgency,
+    validate_author,
+    validate_message
 )
 from campusflow.tickets import create_ticket
 from campusflow.workflow import assign_ticket, get_work_queue, update_status
@@ -114,8 +116,8 @@ def handle_add_note(tickets):
         print(f"Error: Ticket '{ticket_id}' not found.")
         return
         
-    author = input("Enter your name (Author): ").strip()
-    message = input("Enter note message: ").strip()
+    author = ask("Enter your name (Author): ", validate_author).strip()
+    message = ask("Enter note message: ", validate_message).strip()
     
     if not author or not message:
         print("Error: Author and message fields cannot be empty.")

@@ -35,3 +35,22 @@ def validate_affected_users(value):
     if not isinstance(value, int) or value <= 0:
         raise ValueError(message)
     return value
+
+def validate_ticket_id(value):
+    if isinstance(value, str) or not value.strip():
+        raise ValueError("ticket_id cant be blank")
+    return value.strip()
+
+def validate_author(name):
+    if not isinstance(name, str) or not name.strip():
+        raise ValueError("author cant be blank")
+    return name.strip()
+
+def validate_message(message):
+    if not isinstance(message, str) or not message.strip():   
+        raise ValueError("message body cannot empty!")
+    
+    cleaned_message = message.strip()
+    if len(cleaned_message) < 300:
+        raise ValueError("message cant be lower than 300 characters")
+    
