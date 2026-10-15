@@ -7,12 +7,17 @@
         "affected_users": 12,
         "priority": "high",
         "status": "open",
-        "assigned_to": null,
+        "assigned_to": "Jack",
         "notes": [
             {
                 "note_id": "T001-N001",
+                "author": "Kings",
+                "message": "Trynna solve it"
+            },
+            {
+                "note_id": "T001-N002",
                 "author": "Thomas",
-                "message": "Trynna fix it"
+                "message": "fixed it"
             }
         ]
     }
