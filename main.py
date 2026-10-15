@@ -1,5 +1,18 @@
 
 from campusflow.storage import load_tickets, save_tickets
+from campusflow.reports import build_report, format_report
+from campusflow.create_note import add_note_ticket
+from campusflow.storage import StorageError, load_tickets, save_tickets
+from campusflow.validate import (
+    CATEGORIES,
+    URGENCIES,
+    validate_affected_users,
+    validate_category,
+    validate_title,
+    validate_urgency,
+    validate_author,
+    validate_message
+)
 from campusflow.tickets import create_ticket
 from campusflow.ticket_views import list_tickets, view_ticket
 from campusflow.workflow import assign_ticket, update_status, get_work_queue
@@ -53,6 +66,32 @@ def handle_status(tickets):
         print(f"Ticket {ticket_id} status updated successfully.")
     except ValueError as e:
         print(f"Status update failed: {e}")
+    ticket_id = read_ticket_id()
+    new_status = input("Enter new status (open / in_progress / resolved): ")
+    ticket = update_status(tickets, ticket_id, new_status.strip().lower())
+    save_tickets(tickets)
+    print(f"Ticket {ticket['id']} is now '{ticket['status']}'.")
+
+
+def handle_add_note(tickets):
+    ticket_id = read_ticket_id()
+    
+    ticket = find_ticket(tickets, ticket_id)
+    if ticket is None:
+        print(f"Error: Ticket '{ticket_id}' not found.")
+        return
+        
+    author = ask("Enter your name (Author): ", validate_author).strip()
+    message = ask("Enter note message: ", validate_message).strip()
+    
+    if not author or not message:
+        print("Error: Author and message fields cannot be empty.")
+        return
+
+    ticket = add_note_ticket(tickets, ticket_id, author, message)
+    save_tickets(tickets)
+    print(f"Successfully added note to Ticket {ticket_id}!")
+
 
 def handle_queue(tickets):
     queue = get_work_queue(tickets)
