@@ -1,15 +1,15 @@
 from campusflow.reports import build_report, format_report
 from campusflow.create_note import add_note_ticket
 from campusflow.storage import StorageError, load_tickets, save_tickets
-from campusflow.tickets import (
+from campusflow.validate import (
     CATEGORIES,
     URGENCIES,
-    create_ticket,
     validate_affected_users,
     validate_category,
     validate_title,
     validate_urgency,
 )
+from campusflow.tickets import create_ticket
 from campusflow.workflow import assign_ticket, get_work_queue, update_status
 
 TICKET_FIELDS = [
