@@ -156,3 +156,26 @@
 
 
 - **What I Can Now Explain Without AI:** The structural differences between `pytest` and `unittest` frameworks, how to implement `assert` checking mechanisms, and how to configure automated test runners to evaluate file structures.
+
+
+**CAMPUS-FLOW-Next**
+
+## Fellow: Kpensalen Thomas Aondongu - Engineer A:
+
+## Interaction:1 Add an note to ticket(`create_note.py`)
+
+- **Problem:** Adding a list  of dictionaries as a new field inside an existing list of dictionary.
+
+
+- **My Initial Understanding:** i knew how to append notes to the already dic, and generating a unique id for each new entry.
+
+
+- **Prompt to AI:** can you teach me how to add a list of dictionaries as a field to an already existing list of dictionaries.
+
+- **Useful AI Guidance:** the Ai provided high-quality documentations about dictionries and lists where i can read and solve the problem.
+
+- **Decision:** i built some custom functions to safely modify the nested  lists and dictionaries.
+
+- **Related Files/Commits:** (`create_note.py`)
+
+- **What I Can Now Explain Without AI:** how to iterate through, read and modify an a existing list of dictionary by adding new nested fields.
