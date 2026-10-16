@@ -23,3 +23,18 @@ Tickets will be stored as a list of dictionaries (or a dictionary keyed by ID, d
 ## Error Handling:
 Invalid inputs or illegal state transitions will raise standard Python exceptions (or return explicit error strings/tuples) so the CLI can cleanly catch them and display helpful user errors without crashing or corrupting data. Ownership:
 A dedicated storage.py module will handle loading and saving JSON data, which both engineers will import and utilize.
+
+
+**CAMPUS-RELOADED-NEXT**
+
+## KPENSALEN THOMAS - Engineer A:
+    Rssponsible for common validation helpers
+    data validation
+    Add an open-ticket note
+
+## Onuh EMMANUEL - Enginneer B:
+
+    Responsible for the user-facing search/filter interface
+    note-entry and note-view menus using A's APIs
+    Write tests for combined filters, report totals, invalid CLI choices and quiz scoring
+    Combine category/status/priority filters correctly
